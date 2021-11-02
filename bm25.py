@@ -1,6 +1,7 @@
 import os
 import pysolr
 import requests
+import json
 
 CORE_NAME = "IRF21_p3_demo"
 AWS_IP = "localhost"
