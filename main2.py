@@ -8,7 +8,7 @@ if __name__ == "__main__":
     core = 'IRF21_p3_demo_vsm'
     outfn = 'test_output1.txt'
     IRModel = 'vsm' 
-    outf = open(outfn, 'a+')
+    outf = open(outfn, 'w+')
     with open('queries.txt', encoding="utf-8") as input_queries:
         for line in input_queries:
             query = line.replace(':', '')
