@@ -56,9 +56,6 @@ collection = [{
     "pincodes": [2121212, 3232323]
 }]
 
-f = open('train.json', encoding="utf8")
-collection = json.load(f)
-
 
 class Indexer:
     def __init__(self):
