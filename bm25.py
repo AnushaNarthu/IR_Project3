@@ -70,7 +70,9 @@ class Indexer:
         create_core()
 
     def create_documents(self, docs):
-        print(self.connection.add(docs))
+        f = open('train.json', encoding="utf8")
+        collection = json.load(f)
+        print(self.connection.add(collection))
 
     def add_fields(self):
         data = {
