@@ -146,9 +146,7 @@ class Indexer:
                         }]
                     },
                     'similarity': {
-                        'class': 'solr.BM25SimilarityFactory',
-                        'b': str(b),
-                        'k1': str(k1)
+                        'class': 'solr.ClassicSimilarityFactory'
                     },
                     'queryAnalyzer': {
                         'tokenizer': {
@@ -195,9 +193,7 @@ class Indexer:
                         }]
                     },
                     'similarity': {
-                        'class': 'solr.ClassicSimilarityFactory',
-                        'b': str(b),
-                        'k1': str(k1)
+                        'class': 'solr.ClassicSimilarityFactory'
                     },
                 }, {
                     'name': 'text_de',
@@ -221,9 +217,8 @@ class Indexer:
                         }]
                     },
                     'similarity': {
-                        'class': 'solr.BM25SimilarityFactory',
-                        'b': str(b),
-                        'k1': str(k1)
+                        'class': 'solr.ClassicSimilarityFactory'
+                        
                     },
                 }
             ]
