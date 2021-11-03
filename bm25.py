@@ -243,5 +243,5 @@ if __name__ == "__main__":
     i.replace_BM25(b=0.8, k1=1.4)
     
     i.add_fields()
-    i.replace_fields()
+    #i.replace_fields()
     i.create_documents(collection)
