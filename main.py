@@ -5,7 +5,7 @@ import string
 import requests
 
 if __name__ == "__main__":
-    core = IRF21_p3_demo_bm25
+    core = 'IRF21_p3_demo_bm25'
     outfn = 'test_output.txt'
     IRModel = 'bm25' 
     outf = open(outfn, 'a+')
