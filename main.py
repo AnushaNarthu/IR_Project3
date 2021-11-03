@@ -18,7 +18,7 @@ if __name__ == "__main__":
                 join_query+=arr[i]+" "
             qid = arr[0]
             params={
-            'q':'text_en:'+ join_query +'or text_de:'+join_query+' or text_ru:'+join_query,
+            'q':'text_en:('+ join_query +')or text_de:('+join_query+') or text_ru:('+join_query+')',
             'fl':'id,score',
             'wt':'json',
             'indent':'true',
