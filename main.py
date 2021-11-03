@@ -17,9 +17,15 @@ if __name__ == "__main__":
             for i in range(1,len(arr)):
                 join_query+=arr[i]+" "
             qid = arr[0]
-            query_response = requests.get(f'http://localhost:8983/solr/' + core + '/select?fl=id%2Cscore&q=text_en%3A(' \
-                            + join_query + ')%20or%20text_de%3A(' + join_query + ')%20or%20text_ru%3A(' \
-                            + join_query + ')' + '&rows=20&wt=json')
+            params={
+            'q':'text_en:'+ join_query +'or text_de:'+join_query+' or text_ru:'+join_query,
+            'fl':'id,score',
+            'wt':'json',
+            'indent':'true',
+            'rows':'20'
+            }
+
+            query_response= requests.get(f'http://localhost:8983/solr/' + core + '/select', params=params)
             docs = query_response.json()['response']['docs']
             rank = 1
             for doc in docs:
