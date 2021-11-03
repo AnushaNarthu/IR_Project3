@@ -10,7 +10,7 @@ if __name__ == "__main__":
     IRModel = 'bm25' 
     #outf = open(outfn, 'w+')
     count = 1
-    with open('queries.txt', encoding="utf-8") as input_queries:
+    with open('test-queries.txt', encoding="utf-8") as input_queries:
         for line in input_queries:
             query = line.replace(':', '')
             arr = query.split()
