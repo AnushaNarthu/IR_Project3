@@ -76,30 +76,35 @@ class Indexer:
         data = {
             "add-field": [
                 {
-                    "name": "first_name",
-                    "type": "string",
-                    "indexed": True,
-                    "multiValued": False
-                },
-                {
-                    "name": "last_name",
-                    "type": "string",
-                    "multiValued": False
-                }, {
-                    "name": "email",
+                    "name": "lang",
                     "type": "string",
                     "multiValued": False
                 },
                 {
-                    "name": "age",
-                    "type": "pint",
+                    "name": "text_de",
+                    "type": "text_de",
                     "multiValued": False
                 },
                 {
-                    "name": "pincodes",
-                    "type": "plongs",
+                    "name": "text_en",
+                    "type": "text_en",
+                    "multiValued": False
+                },
+                {
+                    "name": "text_ru",
+                    "type": "text_ru",
+                    "multiValued": False
+                },
+                {
+                    "name": "tweet_urls",
+                    "type": "string",
                     "multiValued": True
                 },
+                {
+                    "name": "tweet_hashtags",
+                    "type": "string",
+                    "multiValued": True
+                }
             ]
         }
 
