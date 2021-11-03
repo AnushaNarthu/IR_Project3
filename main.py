@@ -8,7 +8,7 @@ if __name__ == "__main__":
     core = 'IRF21_p3_demo_bm25'
     outfn = 'test_output.txt'
     IRModel = 'bm25' 
-    outf = open(outfn, 'a+')
+    outf = open(outfn, 'w+')
     with open('queries.txt', encoding="utf-8") as input_queries:
         for line in input_queries:
             query = line.replace(':', '')
