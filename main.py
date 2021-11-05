@@ -6,7 +6,7 @@ import requests
 
 if __name__ == "__main__":
     core = 'IRF21_p3_demo_bm25'
-    outfn = 'bm25.txt'
+    outfn = 'x.txt'
     IRModel = 'bm25' 
     #outf = open(outfn, 'w+')
     count = 1
@@ -30,7 +30,7 @@ if __name__ == "__main__":
             query_response= requests.get(f'http://localhost:8983/solr/' + core + '/select', params=params)
             docs = query_response.json()['response']['docs']
             rank = 1
-            outf = open( 'bm25.txt', 'a+')
+            outf = open( 'x.txt', 'a+')
             #outf = open('BM25/' + str(count)+'.txt', 'w+')
             for doc in docs:
                 outf.write(str(qid) + ' ' + 'Q0' + ' ' + str(doc['id']) + ' ' + str(rank) + ' ' + str(
