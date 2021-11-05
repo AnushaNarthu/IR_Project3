@@ -134,11 +134,7 @@ class Indexer:
                         'tokenizer': {
                             'class': 'solr.StandardTokenizerFactory'
                         },
-                        'filters': [{
-                            'class': 'solr.StopFilterFactory',
-                            'words': 'lang/stopwords_en.txt',
-                            'ignoreCase': 'true'
-                        }, {
+                        'filters': [ {
                             'class': 'solr.LowerCaseFilterFactory'
                         }, {
                             'class': 'solr.EnglishPossessiveFilterFactory'
@@ -163,11 +159,7 @@ class Indexer:
                             'expand': 'true',
                             'ignoreCase': 'true',
                             'synonyms': 'synonyms.txt'
-                        }, {
-                            'class': 'solr.StopFilterFactory',
-                            'words': 'lang/stopwords_en.txt',
-                            'ignoreCase': 'true'
-                        }, {
+                        },  {
                             'class': 'solr.LowerCaseFilterFactory'
                         }, {
                             'class': 'solr.EnglishPossessiveFilterFactory'
@@ -188,14 +180,8 @@ class Indexer:
                         },
                         'filters': [{
                             'class': 'solr.LowerCaseFilterFactory'
-                        }, {
-                            'class': 'solr.StopFilterFactory',
-                            'format': 'snowball',
-                            'words': 'lang/stopwords_ru.txt',
-                            'ignoreCase': 'true'
-                        }, {
-                            'class': 'solr.SnowballPorterFilterFactory',
-                            'language': 'Russian'
+                        },  {
+                            'class': 'solr.RussianLightStemFilterFactory'
                         }]
                     },
                     'similarity': {
@@ -213,11 +199,6 @@ class Indexer:
                         },
                         'filters': [{
                             'class': 'solr.LowerCaseFilterFactory'
-                        }, {
-                            'class': 'solr.StopFilterFactory',
-                            'format': 'snowball',
-                            'words': 'lang/stopwords_de.txt',
-                            'ignoreCase': 'true'
                         }, {
                             'class': 'solr.GermanNormalizationFilterFactory'
                         }, {
@@ -240,7 +221,7 @@ if __name__ == "__main__":
     i = Indexer()
     i.do_initial_setup()
 
-    i.replace_BM25(b=0.8, k1=1.4)
+    i.replace_BM25(b=0.8, k1= 0.2)
     
     i.add_fields()
     #i.replace_fields()
