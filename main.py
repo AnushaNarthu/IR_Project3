@@ -32,7 +32,7 @@ if __name__ == "__main__":
             docs = query_response.json()['response']['docs']
             #print(docs)
             rank = 1
-            outf = open('BM25/' + str(count)+'.txt', 'w+')
+            outf = open('BM25/' + str(file_count)+'.txt', 'w+')
             for doc in docs:
                 outf.write(str(qid) + ' ' + 'Q0' + ' ' + str(doc['id']) + ' ' + str(rank) + ' ' + str(
                     doc['score']) + ' ' + IRModel + '\n')
