@@ -8,8 +8,10 @@ if __name__ == "__main__":
     core = 'IRF21_p3_demo_bm25'
     outfn = 'test_output.txt'
     IRModel = 'bm25' 
-    outf = open(outfn, 'w+')
-    with open('queries.txt', encoding="utf-8") as input_queries:
+    #outf = open(outfn, 'w+')
+    file_count = 1
+    with open('test-queries.txt', encoding="utf-8") as input_queries:
+    #with open('queries.txt', encoding="utf-8") as input_queries:
         for line in input_queries:
             query = line.replace(':', '')
             arr = query.split()
@@ -30,9 +32,11 @@ if __name__ == "__main__":
             docs = query_response.json()['response']['docs']
             #print(docs)
             rank = 1
+            outf = open('BM25/' + str(count)+'.txt', 'w+')
             for doc in docs:
                 outf.write(str(qid) + ' ' + 'Q0' + ' ' + str(doc['id']) + ' ' + str(rank) + ' ' + str(
                     doc['score']) + ' ' + IRModel + '\n')
                 rank += 1
         outf.close()
+        file_count +=1
         input_queries.close()
