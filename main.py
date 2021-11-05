@@ -33,4 +33,4 @@ if __name__ == "__main__":
                     doc['score']) + ' ' + IRModel + '\n')
                 rank += 1
         outf.close()
-        input_queries.close()
+    input_queries.close()
