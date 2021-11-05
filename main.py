@@ -30,8 +30,8 @@ if __name__ == "__main__":
             query_response= requests.get(f'http://localhost:8983/solr/' + core + '/select', params=params)
             docs = query_response.json()['response']['docs']
             rank = 1
-
-            outf = open('BM25/' + str(count)+'.txt', 'w+')
+            outf = open( 'bm25.txt', 'a+')
+            #outf = open('BM25/' + str(count)+'.txt', 'w+')
             for doc in docs:
                 outf.write(str(qid) + ' ' + 'Q0' + ' ' + str(doc['id']) + ' ' + str(rank) + ' ' + str(
                     doc['score']) + ' ' + IRModel + '\n')
