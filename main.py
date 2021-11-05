@@ -32,5 +32,5 @@ if __name__ == "__main__":
                 outf.write(str(qid) + ' ' + 'Q0' + ' ' + str(doc['id']) + ' ' + str(rank) + ' ' + str(
                     doc['score']) + ' ' + IRModel + '\n')
                 rank += 1
-        outf.close()
-    input_queries.close()
+            outf.close()
+        input_queries.close()
