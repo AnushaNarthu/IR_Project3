@@ -26,11 +26,13 @@ if __name__ == "__main__":
             }
 
             query_response= requests.get(f'http://localhost:8983/solr/' + core + '/select', params=params)
+            
             docs = query_response.json()['response']['docs']
+            print(docs)
             rank = 1
             for doc in docs:
                 outf.write(str(qid) + ' ' + 'Q0' + ' ' + str(doc['id']) + ' ' + str(rank) + ' ' + str(
                     doc['score']) + ' ' + IRModel + '\n')
                 rank += 1
-            outf.close()
+        outf.close()
         input_queries.close()
