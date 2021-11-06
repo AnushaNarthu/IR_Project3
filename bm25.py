@@ -3,7 +3,7 @@ import pysolr
 import requests
 import json
 
-CORE_NAME = "IRF21_p3_demo_bm25"
+CORE_NAME = "IRF21_project3_bm25"
 AWS_IP = "localhost"
 
 
@@ -221,8 +221,9 @@ if __name__ == "__main__":
     i = Indexer()
     i.do_initial_setup()
 
-    i.replace_BM25(b=0.8, k1= 0.2)
+    i.replace_BM25(b=0.85, k1= 0.30)
     
     i.add_fields()
     #i.replace_fields()
     i.create_documents(collection)
+

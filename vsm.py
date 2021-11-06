@@ -3,7 +3,7 @@ import pysolr
 import requests
 import json
 
-CORE_NAME = "IRF21_p3_demo_vsm"
+CORE_NAME = "IRF21_project3_vsm"
 AWS_IP = "localhost"
 
 
@@ -123,7 +123,7 @@ class Indexer:
         print(requests.post(self.solr_url + CORE_NAME + "/schema", json=data).json())
 
 
-    def replace_BM25(self, b=None, k1=None):
+    def replace_vsm(self):
         data = {
             "replace-field-type": [
                 {
@@ -194,6 +194,8 @@ class Indexer:
                         }, {
                             'class': 'solr.SnowballPorterFilterFactory',
                             'language': 'Russian'
+                        }, {
+                            'class': 'solr.RussianLightStemFilterFactory'
                         }]
                     },
                     'similarity': {
@@ -235,8 +237,9 @@ if __name__ == "__main__":
     i = Indexer()
     i.do_initial_setup()
 
-    i.replace_BM25(b=0.8, k1=1.4)
+    i.replace_vsm()
     
     i.add_fields()
     #i.replace_fields()
     i.create_documents(collection)
+

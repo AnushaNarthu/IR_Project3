@@ -8,8 +8,9 @@ if __name__ == "__main__":
     core = 'IRF21_project3_vsm'
     outfn = 'test_output1.txt'
     IRModel = 'vsm' 
-    outf = open(outfn, 'w+')
-    with open('queries.txt', encoding="utf-8") as input_queries:
+    #outf = open(outfn, 'w+')
+    file_count = 1
+    with open('test-queries.txt', encoding="utf-8") as input_queries:
         for line in input_queries:
             query = line.replace(':', '')
             arr = query.split()
@@ -28,10 +29,13 @@ if __name__ == "__main__":
             query_response= requests.get(f'http://localhost:8983/solr/' + core + '/select', params=params)
             docs = query_response.json()['response']['docs']
             rank = 1
+            
+            outf = open('VSM/' + str(file_count)+'.txt', 'w+')
             for doc in docs:
                 outf.write(str(qid) + ' ' + 'Q0' + ' ' + str(doc['id']) + ' ' + str(rank) + ' ' + str(
                     doc['score']) + ' ' + IRModel + '\n')
                 rank += 1
-        outf.close()
+            outf.close()
+            file_count += 1
         input_queries.close()
 
